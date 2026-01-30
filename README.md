@@ -17,7 +17,7 @@
 ## 📩 给我留言（收信功能）
 如果您有任何合作意向，请直接在下方留言，我们会第一时间给您回复：
 
-<form action="https://formspree.io/f/dtt150000@gmail.com" method="POST">
+<form action="https://getform.io/f/xm4mwei9hv7" method="POST">
   <label> 您的姓名: <input type="text" name="name"> </label><br><br>
   <label> 您的邮箱: <input type="email" name="_replyto"> </label><br><br>
   <label> 留言内容: <textarea name="message"></textarea> </label><br><br>
