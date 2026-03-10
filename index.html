@@ -3,60 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAHAO GROUP | 东南亚跨境贸易指挥中心</title>
+    <title>DAHAO GROUP | 大昊昊国际贸易集团</title>
     <style>
-        :root { --main-blue: #001a33; --tech-blue: #00d4ff; --glow: rgba(0, 212, 255, 0.5); }
-        body { margin: 0; background: var(--main-blue); color: #fff; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
-        
-        /* 动态背景动画：模拟流光 */
-        .bg-glow {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #002b52 0%, #001a33 100%);
-            z-index: -1;
-        }
-        .stream {
-            position: absolute; width: 2px; height: 100px;
-            background: linear-gradient(to bottom, transparent, var(--tech-blue));
-            animation: flow 4s linear infinite; opacity: 0.3;
-        }
-        @keyframes flow {
-            0% { transform: translateY(-100px) translateX(0); opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { transform: translateY(100vh) translateX(200px); opacity: 0; }
-        }
-
-        /* 核心内容布局 */
-        header { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .hero-title { 
-            font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; 
-            background: linear-gradient(to right, #fff, var(--tech-blue));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-transform: uppercase; letter-spacing: 4px; filter: drop-shadow(0 0 10px var(--glow));
-        }
-        .hero-sub { font-size: 1.2rem; color: var(--tech-blue); letter-spacing: 8px; margin-top: 10px; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
-        
-        /* 科技感卡片 */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .tech-card {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.2);
-            padding: 40px; border-radius: 2px; position: relative; overflow: hidden;
-            backdrop-filter: blur(10px); transition: 0.4s;
-        }
-        .tech-card:hover { border-color: var(--tech-blue); background: rgba(255, 255, 255, 0.08); transform: scale(1.02); }
-        .tech-card::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 40px; height: 40px;
-            border-top: 2px solid var(--tech-blue); border-left: 2px solid var(--tech-blue);
-        }
-        
-        h3 { color: var(--tech-blue); margin-bottom: 15px; font-size: 1.5rem; }
-        p { line-height: 1.8; color: #b0c4de; }
-
-        footer { text-align: center; padding: 100px 20px; border-top: 1px solid rgba(0, 212, 255, 0.1); color: #666; }
+        body { margin: 0; background: #001a33; color: #ffffff; font-family: sans-serif; text-align: center; overflow-x: hidden; }
+        header { padding: 100px 20px; background: linear-gradient(180deg, #002b52 0%, #001a33 100%); }
+        .hero-title { font-size: 3rem; font-weight: bold; color: #00d4ff; text-shadow: 0 0 20px rgba(0,212,255,0.5); margin: 0; }
+        .hero-sub { font-size: 1.2rem; color: #b0c4de; letter-spacing: 5px; margin-top: 10px; }
+        .container { max-width: 1000px; margin: -50px auto 50px; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .tech-card { background: rgba(255,255,255,0.05); border: 1px solid #00d4ff; padding: 30px; border-radius: 4px; backdrop-filter: blur(5px); }
+        h3 { color: #00d4ff; }
+        p { color: #b0c4de; line-height: 1.6; }
+        footer { padding: 50px; color: #555; border-top: 1px solid rgba(0,212,255,0.1); }
     </style>
 </head>
 <body>
-
-    <div class="bg-glow">
-        <div class="stream" style="left: 10%; animation-delay: 0
+    <header>
+        <h1 class="hero-title">DAHAO GROUP</h1>
+        <div class="hero-sub">大昊昊国际贸易集团</div>
+        <p style="color:#00d4ff; margin-top:20px;">—— 东南亚跨境贸易智慧领航 ——</p>
+    </header>
+    <div class="container">
+        <div class="grid">
+            <div class="tech-card">
+                <h3>数字化矩阵</h3>
+                <p>利用大数据锁定东南亚爆款，精准布局全平台电商渠道。</p>
+            </div>
+            <div class="tech-card">
+                <h3>跨境智联物流</h3>
+                <p>仓配一体化，实现东南亚全境极速送达，提升用户体验。</p>
+            </div>
+            <div class="tech-card">
+                <h3>供应链整合</h3>
+                <p>直连优质货源，为全球合作伙伴提供最具竞争力的出海方案。</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>CONTACT: your_email@gmail.com</p>
+        <p>© 2026 DAHAO INTERNATIONAL. ALL RIGHTS RESERVED.</p>
+    </footer>
+</body>
+</html>
