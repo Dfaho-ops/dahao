@@ -3,92 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAHAO GROUP | 东南亚跨境贸易指挥中心</title>
+    <title>DAHAO GROUP | 大昊昊国际贸易集团</title>
     <style>
-        :root { --apple-black: #000000; --apple-gray: #1d1d1f; --apple-blue: #2997ff; --text-gray: #86868b; }
-        body { margin: 0; background-color: var(--apple-black); color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC","SF Pro Display","PingFang SC", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+        :root { --apple-black: #000000; --apple-gray: #1d1d1f; --apple-blue: #00c853; --text-gray: #86868b; }
+        body { margin: 0; background-color: var(--apple-black); color: #f5f5f7; font-family: -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
 
-        /* --- Apple 风格顶部导航 --- */
-        nav { background: rgba(0, 0, 0, 0.8); backdrop-filter: saturate(180%) blur(20px); position: fixed; top: 0; width: 100%; height: 44px; z-index: 9999; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        /* --- 头部 Hero --- */
+        header { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        .hero-title { font-size: clamp(3rem, 12vw, 6rem); font-weight: 600; letter-spacing: -0.02em; background: linear-gradient(to right, #fff, #86868b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-sub { font-size: 1.5rem; color: var(--text-gray); margin-top: 20px; }
 
-        /* --- 巨幕 Hero 区域 --- */
-        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(180deg, #000 60%, #0a0a0a 100%); padding: 0 20px; }
-        .hero-title { font-size: clamp(3rem, 12vw, 6rem); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 10px; background: linear-gradient(to right, #fff 20%, #86868b 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-sub { font-size: clamp(1.2rem, 4vw, 2rem); color: var(--text-gray); font-weight: 400; max-width: 800px; margin-bottom: 30px; }
+        /* --- 内容网格 --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .apple-card { background: var(--apple-gray); border-radius: 22px; padding: 40px; border: 1px solid rgba(255,255,255,0.05); }
+        .apple-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
+        .apple-card p { color: var(--text-gray); line-height: 1.6; }
 
-        /* --- Apple 风格卡片网格 --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
-        .section-tag { color: var(--apple-blue); font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; display: block; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
-
-        .apple-card {
-            background: var(--apple-gray); border-radius: 28px; padding: 50px; overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.05); position: relative;
+        /* --- 右下角微信悬浮球 --- */
+        .wechat-float {
+            position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+            background: #07c160; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 30px rgba(7, 193, 96, 0.4); cursor: pointer; z-index: 10000;
+            transition: 0.3s;
         }
-        .apple-card:hover { transform: scale(1.02); border-color: rgba(41, 151, 255, 0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        .apple-card h3 { font-size: 2rem; margin: 0 0 15px; font-weight: 600; }
-        .apple-card p { font-size: 1.1rem; color: var(--text-gray); line-height: 1.5; margin: 0; }
+        .wechat-float:hover { transform: scale(1.1); }
+        .wechat-icon { width: 35px; height: 35px; fill: white; }
 
-        /* --- 动态流光线条（模拟 Apple 官网的高级感） --- */
-        .glow-line {
-            position: absolute; top: 0; left: -100%; width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--apple-blue), transparent);
-            animation: light-flow 4s infinite;
+        /* --- 微信弹出层 (Modal) --- */
+        .wechat-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(15px);
+            z-index: 10001; justify-content: center; align-items: center;
         }
-        @keyframes light-flow { 0% { left: -100%; } 100% { left: 100%; } }
+        .modal-content {
+            background: #2c2c2e; padding: 40px; border-radius: 30px; text-align: center;
+            width: 300px; border: 1px solid rgba(255,255,255,0.1);
+            animation: modalIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        
+        .qr-placeholder { width: 200px; height: 200px; background: white; margin: 20px auto; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; }
+        .wechat-id { font-size: 1.2rem; color: #07c160; margin: 15px 0; font-weight: bold; }
+        .close-btn { color: var(--text-gray); cursor: pointer; margin-top: 20px; display: inline-block; }
 
-        /* --- 实时状态栏 --- */
-        .status-pill { background: rgba(41, 151, 255, 0.1); color: var(--apple-blue); padding: 8px 20px; border-radius: 100px; font-size: 0.9rem; margin-bottom: 20px; border: 1px solid rgba(41, 151, 255, 0.3); }
-
-        footer { text-align: center; padding: 100px 20px; color: var(--text-gray); border-top: 1px solid #333; line-height: 2; }
-        .btn-more { color: var(--apple-blue); text-decoration: none; font-size: 1.2rem; font-weight: 400; transition: 0.3s; }
-        .btn-more:hover { text-decoration: underline; }
+        footer { text-align: center; padding: 80px; color: #444; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
-
-<nav></nav>
-
-<header>
-    <div class="status-pill">● 2026 东南亚跨境红利报告已更新</div>
-    <h1 class="hero-title">DAHAO GROUP</h1>
-    <p class="hero-sub">重新定义东南亚贸易。智能、高效、通达全球。</p>
-    <a href="mailto:dh_group@gmail.com" class="btn-more">联系专家进行商业洽谈 > </a>
-</header>
-
-<div class="container">
-    <span class="section-tag">核心业务</span>
-    <div class="grid">
-        <div class="apple-card">
-            <div class="glow-line"></div>
-            <h3>数字化全域运营</h3>
-            <p>基于 AI 的深度选品逻辑，我们在 TikTok、Shopee、Lazada 构建了多维增长矩阵。让流量精准转化为订单。</p>
-        </div>
-        <div class="apple-card">
-            <h3>柔性全球供应</h3>
-            <p>打通上游 500+ 精尖工厂。我们不仅提供商品，更提供从研发到量产的柔性快速响应方案。</p>
-        </div>
-        <div class="apple-card">
-            <h3>极速智慧物流</h3>
-            <p>跨国干线与本土配送的完美闭环。3日内触达东南亚核心城市圈，让跨境体验如同本地买卖。</p>
-        </div>
-        <div class="apple-card">
-            <h3>品牌全球孵化</h3>
-            <p>助力中国制造升级为全球品牌。从市场洞察到本土化营销，我们为您提供全链路的出海护航。</p>
-        </div>
-    </div>
-
-    <section style="margin-top: 100px; text-align: center;">
-        <span class="section-tag">数据驱动</span>
-        <h2 style="font-size: 3.5rem; margin: 20px 0;">5,000,000+</h2>
-        <p style="color: var(--text-gray); font-size: 1.5rem;">年均处理订单量，见证大昊昊集团的全球吞吐力。</p>
-    </section>
-</div>
-
-<footer>
-    <p>Copyright © 2026 大昊昊国际贸易集团. All rights reserved.</p>
-    <p>法律条款 | 隐私政策 | 全球站点</p>
-</footer>
-
-</body>
-</html>
