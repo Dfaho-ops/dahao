@@ -3,54 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大昊昊国际贸易集团 - 东南亚跨境电商专家</title>
+    <title>DAHAO GROUP | 东南亚跨境贸易指挥中心</title>
     <style>
-        body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.6; color: #333; margin: 0; background: #f9f9f9; }
-        header { background: #1a237e; color: #fff; padding: 60px 20px; text-align: center; }
-        .container { max-width: 900px; margin: 20px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h2 { color: #1a237e; border-left: 5px solid #ffab00; padding-left: 15px; }
-        .business-card { background: #f0f2f5; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
-        .footer { text-align: center; color: #666; font-size: 0.9em; padding: 40px; }
-        .badge { background: #ffab00; color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        :root { --main-blue: #001a33; --tech-blue: #00d4ff; --glow: rgba(0, 212, 255, 0.5); }
+        body { margin: 0; background: var(--main-blue); color: #fff; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
+        
+        /* 动态背景动画：模拟流光 */
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #002b52 0%, #001a33 100%);
+            z-index: -1;
+        }
+        .stream {
+            position: absolute; width: 2px; height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--tech-blue));
+            animation: flow 4s linear infinite; opacity: 0.3;
+        }
+        @keyframes flow {
+            0% { transform: translateY(-100px) translateX(0); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(100vh) translateX(200px); opacity: 0; }
+        }
+
+        /* 核心内容布局 */
+        header { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero-title { 
+            font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; 
+            background: linear-gradient(to right, #fff, var(--tech-blue));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-transform: uppercase; letter-spacing: 4px; filter: drop-shadow(0 0 10px var(--glow));
+        }
+        .hero-sub { font-size: 1.2rem; color: var(--tech-blue); letter-spacing: 8px; margin-top: 10px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
+        
+        /* 科技感卡片 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 40px; border-radius: 2px; position: relative; overflow: hidden;
+            backdrop-filter: blur(10px); transition: 0.4s;
+        }
+        .tech-card:hover { border-color: var(--tech-blue); background: rgba(255, 255, 255, 0.08); transform: scale(1.02); }
+        .tech-card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 40px; height: 40px;
+            border-top: 2px solid var(--tech-blue); border-left: 2px solid var(--tech-blue);
+        }
+        
+        h3 { color: var(--tech-blue); margin-bottom: 15px; font-size: 1.5rem; }
+        p { line-height: 1.8; color: #b0c4de; }
+
+        footer { text-align: center; padding: 100px 20px; border-top: 1px solid rgba(0, 212, 255, 0.1); color: #666; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>🌏 大昊昊国际贸易集团</h1>
-        <p>专业跨境电商运营 | 东南亚市场深耕者</p>
-    </header>
 
-    <div class="container">
-        <section>
-            <h2>关于我们</h2>
-            <p>大昊昊集团（Dahao Ops）专注于东南亚高速增长的电商红利市场，凭借强大的供应链整合能力与数字化运营，为东南亚消费者带来优质的中国制造。我们不只是卖货，更是中国品牌出海的桥梁。</p>
-        </section>
-
-        <section>
-            <h2>核心业务范畴</h2>
-            <div class="business-card">
-                <h3>1. 全平台店铺运营 <span class="badge">Shopee / Lazada / TikTok</span></h3>
-                <p>深度入驻东南亚主流电商平台，利用大数据分析精准选品，覆盖印尼、泰国、越南、菲律宾等核心市场。</p>
-            </div>
-            <div class="business-card">
-                <h3>2. 东南亚本土化营销</h3>
-                <p>紧跟 TikTok 潮流，布局本土红人带货与直播电商，打造爆款单品，解决跨境“水土不服”问题。</p>
-            </div>
-            <div class="business-card">
-                <h3>3. 智慧供应链与仓储</h3>
-                <p>依托国内优质货源地，打通头程物流与海外仓体系，实现高效订单处理与极速配送。</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>商业合作</h2>
-            <p>欢迎品牌商、供应商洽谈合作，共同开拓东南亚万亿级商机。</p>
-            <p>📩 联系邮箱：<strong>您的Google邮箱地址写在这里</strong></p>
-        </section>
-    </div>
-
-    <div class="footer">
-        © 2026 大昊昊国际贸易集团 版权所有
-    </div>
-</body>
-</html>
+    <div class="bg-glow">
+        <div class="stream" style="left: 10%; animation-delay: 0
